@@ -1,0 +1,16 @@
+{
+  "name": "Antevenio/query-weight",
+  "description": "Provides MySQL EXPLAIN based query weight",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Iván Mota",
+      "email": "pinfake@hotmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "QueryWeight\\": "src/"
+    }
+  }
+}

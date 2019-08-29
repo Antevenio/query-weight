@@ -1,5 +1,5 @@
 {
-  "name": "Antevenio/query-weight",
+  "name": "antevenio/query-weight",
   "description": "Provides MySQL EXPLAIN based query weight",
   "license": "MIT",
   "authors": [
@@ -14,7 +14,7 @@
     }
   },
   "require": {
-    "ext-PDO": "1.0.4dev"
+    "ext-PDO": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^5.7"

@@ -10,7 +10,7 @@ class QueryWeight
      */
     protected $pdo;
 
-    public function __construct( PDO $pdo )
+    public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
@@ -24,11 +24,16 @@ class QueryWeight
         $statement = $this->pdo->query( $explain );
         $rows = $statement->fetchAll();
         $total = 1;
+        $computableRows = 0;
         foreach( $rows as $row )
         {
-            $total *= $row['rows'];
+            $complexity = $row['rows'];
+            if ($complexity > 1) {
+                $computableRows++;
+            }
+            $total *= $complexity;
         }
-        return ($total);
+        return $computableRows > 1 ? $total : 1;
     }
 
     protected function isExplainable($query)

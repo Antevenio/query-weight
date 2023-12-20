@@ -21,7 +21,7 @@ class QueryWeight
             throw new UnexplainableQueryException();
         }
 
-        $executionPlan = new ExecutionPlan();
+        $executionPlan = (new ExecutionPlan())->setQuery($query);
 
         $statement = $this->pdo->query("EXPLAIN " . $query);
         $rows = $statement->fetchAll();

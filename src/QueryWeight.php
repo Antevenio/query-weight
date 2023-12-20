@@ -24,7 +24,7 @@ class QueryWeight
         $executionPlan = (new ExecutionPlan())->setQuery($query);
 
         $statement = $this->pdo->query("EXPLAIN " . $query);
-        $rows = $statement->fetchAll();
+        $rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
         $statement->closeCursor();
         $executionPlan->setRows($rows);
         $executionPlan->setComputableRows($this->getComputableRows($rows));
@@ -32,7 +32,7 @@ class QueryWeight
         try {
             $statement = $this->pdo->query("EXPLAIN FORMAT=JSON " . $query);
             $row = $statement->fetch();
-            $executionPlan->setJson($row['EXPLAIN']);
+            $executionPlan->setJson(json_decode($row['EXPLAIN'], true));
             $statement->closeCursor();
         } catch (\PDOException $ex) {
         }

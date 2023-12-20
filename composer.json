@@ -1,22 +1,23 @@
 {
-  "name": "antevenio/query-weight",
-  "description": "Provides MySQL EXPLAIN based query weight",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Iván Mota",
-      "email": "pinfake@hotmail.com"
+    "name": "antevenio/query-weight",
+    "description": "Provides MySQL EXPLAIN based query weight",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Iván Mota",
+            "email": "pinfake@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "QueryWeight\\": "src/"
+        }
+    },
+    "require": {
+        "ext-PDO": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "QueryWeight\\": "src/"
-    }
-  },
-  "require": {
-    "ext-PDO": "*"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^5.7"
-  }
 }

@@ -2,7 +2,7 @@
 
 namespace QueryWeight;
 
-class ExecutionPlan
+class ExecutionPlan implements \JsonSerializable
 {
     private $computableRows;
     private $rows;
@@ -54,5 +54,10 @@ class ExecutionPlan
     public function setJson($json)
     {
         $this->json = $json;
+    }
+
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }
